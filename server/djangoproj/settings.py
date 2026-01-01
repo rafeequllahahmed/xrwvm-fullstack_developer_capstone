@@ -33,8 +33,20 @@ DEBUG = True
 
 
 
-ALLOWED_HOSTS=['localhost','https://rafeeqahmedu-8000.theianext-1-labs-prod-misc-tools-us-east-0.proxy.cognitiveclass.ai']
-CSRF_TRUSTED_ORIGINS=['https://rafeeqahmedu-8000.theianext-1-labs-prod-misc-tools-us-east-0.proxy.cognitiveclass.ai']
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    'rafeeqahmedu-8000.theianext-0-labs-prod-misc-tools-us-east-0.proxy.cognitiveclass.ai',
+    'rafeeqahmedu-8000.theianext-1-labs-prod-misc-tools-us-east-0.proxy.cognitiveclass.ai',
+    '.proxy.cognitiveclass.ai',
+]
+
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://rafeeqahmedu-8000.theianext-0-labs-prod-misc-tools-us-east-0.proxy.cognitiveclass.ai',
+    'https://rafeeqahmedu-8000.theianext-1-labs-prod-misc-tools-us-east-0.proxy.cognitiveclass.ai',
+    'https://*.proxy.cognitiveclass.ai',
+]
 
 
 
@@ -60,6 +72,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -70,9 +83,17 @@ ROOT_URLCONF = 'djangoproj.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+
+
         'DIRS': [
-            os.path.join(BASE_DIR,'frontend/static')
+            os.path.join(BASE_DIR, 'frontend/static'),
+            os.path.join(BASE_DIR, 'frontend/build'),
+            os.path.join(BASE_DIR, 'frontend/build/static'),
         ],
+
+
+
+
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -146,6 +167,7 @@ MEDIA_URL = '/media/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,'frontend/static')
+    os.path.join(BASE_DIR, 'frontend/static'),
+    os.path.join(BASE_DIR, 'frontend/build'),
+    os.path.join(BASE_DIR, 'frontend/build/static'),
 ]
-
