@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY =\
+SECRET_KEY = \
     'django-insecure-ccow$tz_=9%dxu4(0%^(z%nx32#s@(zt9$ih@)5l54yny)wm-0'
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -32,25 +32,24 @@ DEBUG = True
 # CSRF_TRUSTED_ORIGINS = []
 
 
-
-
-
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
-    'rafeeqahmedu-8000.'
-    'theianext-0-labs-prod-misc-tools-us-east-0.'
-    'proxy.cognitiveclass.ai',
+    'rafeeqahmedu-8000.theianext-0-labs-prod-misc-tools'
+    '-us-east-0.proxy.cognitiveclass.ai',
+    'rafeeqahmedu-8000.theianext-1-labs-prod-misc-tools'
+    '-us-east-0.proxy.cognitiveclass.ai',
+    '.proxy.cognitiveclass.ai',
 ]
+
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://'
-    'rafeeqahmedu-8000.'
-    'theianext-0-labs-prod-misc-tools-us-east-0.'
-    'proxy.cognitiveclass.ai',
+    'https://rafeeqahmedu-8000.theianext-0-labs-prod-misc-tools'
+    '-us-east-0.proxy.cognitiveclass.ai',
+    'https://rafeeqahmedu-8000.theianext-1-labs-prod-misc-tools'
+    '-us-east-0.proxy.cognitiveclass.ai',
+    'https://*.proxy.cognitiveclass.ai',
 ]
-
-
 
 
 REST_FRAMEWORK = {
@@ -115,7 +114,8 @@ DATABASES = {
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME':
-        'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'django.contrib.auth.password_validation.'
+        'UserAttributeSimilarityValidator',
     },
     {
         'NAME':
@@ -127,13 +127,14 @@ AUTH_PASSWORD_VALIDATORS = [
     },
     {
         'NAME':
-        'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'django.contrib.auth.password_validation.'
+        'NumericPasswordValidator',
     },
 ]
 
 
 # Internationalization
-
+# https://docs.djangoproject.com/en/3.2/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
 
@@ -147,20 +148,18 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-
+# https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
-
-
+# Default primary key field type
+# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'frontend/build/static'),
 ]
-
