@@ -1,7 +1,6 @@
 # start
 
 from .restapis import get_request, analyze_review_sentiments, post_review
-from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.contrib.auth import logout
 from .models import CarMake, CarModel
@@ -132,10 +131,6 @@ def get_dealer_reviews(request, dealer_id):
 
 
 @csrf_exempt
-def add_review(request):
-    if not request.user.is_anonymous:
-        data = json.loads(request.body)
-        try:
             post_review(data)
             return JsonResponse({"status": 200})
         except Exception:
