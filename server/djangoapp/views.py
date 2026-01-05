@@ -19,9 +19,8 @@ logger = logging.getLogger(__name__)
 # Create your views here.
 
 # Create a `login_request` view to handle sign in request
-@csrf_exempt
-@csrf_exempt
-@csrf_exempt
+
+
 def add_review(request):
     if not request.user.is_anonymous:
         data = json.loads(request.body)
