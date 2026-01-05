@@ -129,9 +129,11 @@ def get_dealer_reviews(request, dealer_id):
         return JsonResponse({"status": 400, "message": "Bad Request"})
 
 
-@csrf_exempt
+
+
+        @csrf_exempt
 def add_review(request):
-    if not request.user.is_anonymous:django.shortcuts.render
+    if not request.user.is_anonymous:
         data = json.loads(request.body)
         try:
             post_review(data)
@@ -144,4 +146,4 @@ def add_review(request):
         return JsonResponse({"status": 403, "message": "Unauthorized"})
 
 
-        # code end here 
+# code end here
