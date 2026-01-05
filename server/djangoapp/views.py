@@ -131,7 +131,7 @@ def get_dealer_reviews(request, dealer_id):
 
 
 
-        @csrf_exempt
+@csrf_exempt
 def add_review(request):
     if not request.user.is_anonymous:
         data = json.loads(request.body)
@@ -144,6 +144,4 @@ def add_review(request):
             )
     else:
         return JsonResponse({"status": 403, "message": "Unauthorized"})
-
-
 # code end here

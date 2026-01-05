@@ -30,16 +30,14 @@ def get_request(endpoint, **kwargs):
 
     print("GET from {} ".format(request_url))
 
-    try:
+try:
         # Call get method of requests library with URL and parameters
         response = requests.get(request_url)
 
         return response.json()
 
-    except:
-        # If any error occurs
+    except Exception:
         print("Network exception occurred")
-
         return None
 
 
