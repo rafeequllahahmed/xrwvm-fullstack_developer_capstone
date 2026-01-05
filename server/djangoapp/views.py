@@ -94,7 +94,6 @@ def get_cars(request):
         })
     return JsonResponse({"CarModels": cars})
 
-
 # Update the get_dealerships render list of dealerships
 def get_dealerships(request, state="All"):
     if state == "All":
@@ -104,7 +103,6 @@ def get_dealerships(request, state="All"):
     dealerships = get_request(endpoint)
     return JsonResponse({"status": 200, "dealers": dealerships})
 
-
 def get_dealer_details(request, dealer_id):
     if dealer_id:
         endpoint = "/fetchDealer/" + str(dealer_id)
@@ -112,7 +110,6 @@ def get_dealer_details(request, dealer_id):
         return JsonResponse({"status": 200, "dealer": dealership})
     else:
         return JsonResponse({"status": 400, "message": "Bad Request"})
-
 
 def get_dealer_reviews(request, dealer_id):
     # if dealer id has been provided
@@ -126,9 +123,6 @@ def get_dealer_reviews(request, dealer_id):
         return JsonResponse({"status": 200, "reviews": reviews})
     else:
         return JsonResponse({"status": 400, "message": "Bad Request"})
-
-
-
 
 @csrf_exempt
 def add_review(request):
